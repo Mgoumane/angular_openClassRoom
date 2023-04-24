@@ -7,6 +7,7 @@ import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component
 import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
 
 // sachez que pour utiliser un component dans une application Angular, il faut le déclarer dans un module
 @NgModule({
@@ -15,7 +16,8 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     FaceSnapComponent,
     FaceSnapListComponent,
     HeaderComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    SingleFaceSnapComponent
   ],
   imports: [
     BrowserModule,

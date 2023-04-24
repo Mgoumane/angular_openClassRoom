@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FaceSnap } from '../models/face-snap.model';
 import { FaceSnapsService } from '../services/face-snaps.service';
+import { Router } from '@angular/router';
 
 // Un décorateur en TypeScript permet, entre autres, d'apporter des modifications à une classe. Ici, le décorateur  @Component  vient ajouter tous les comportements nécessaires à l'utilisation de ce component dans l'application. Il est importé depuis le package  @angular/core. Tout se passe sous le capot, on n'a pas à s'en occuper !
 @Component({
@@ -16,7 +17,7 @@ export class FaceSnapComponent implements OnInit {
 	snapped: boolean = false;
 	buttonContent!: string;
 
-  constructor( private faceSnapsService : FaceSnapsService ) { }
+  constructor( private faceSnapsService : FaceSnapsService,  private router : Router ) { }
 
 	ngOnInit() {
 		this.buttonContent = "Like !"
@@ -38,5 +39,9 @@ export class FaceSnapComponent implements OnInit {
 
 		}
 	}
+
+  onViewFaceSnap(){
+    this.router.navigateByUrl(`facesnaps/${this.facesnap.id}`)
+  }
 
 }
