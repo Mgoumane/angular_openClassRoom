@@ -1,4 +1,4 @@
-<div class="face-snap-card" [ngClass]="{snapped : buttonContent === 'Dislike'}">
+<div class="face-snap-card" *ngIf=" facesnap$ | async as facesnap "  [ngClass]="{snapped : buttonContent === 'Dislike'}">
 
 	<h2>{{ facesnap.title | titlecase }} </h2>
 

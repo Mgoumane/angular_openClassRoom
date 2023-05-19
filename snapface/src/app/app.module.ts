@@ -8,22 +8,23 @@ import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing.module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleFaceSnapComponent } from './single-face-snap/single-face-snap.component';
-
+import { HttpClientModule} from '@angular/common/http';
 // sachez que pour utiliser un component dans une application Angular, il faut le déclarer dans un module
 @NgModule({
-  declarations: [
-    AppComponent,
-    FaceSnapComponent,
-    FaceSnapListComponent,
-    HeaderComponent,
-    LandingPageComponent,
-    SingleFaceSnapComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        FaceSnapComponent,
+        FaceSnapListComponent,
+        HeaderComponent,
+        LandingPageComponent,
+        SingleFaceSnapComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

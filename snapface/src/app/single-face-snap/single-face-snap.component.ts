@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FaceSnapsService } from '../services/face-snaps.service';
 import { FaceSnap } from '../models/face-snap.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-single-face-snap',
@@ -10,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class SingleFaceSnapComponent implements OnInit {
   //Propriété réutilisable qui dépend de ce que le parent lui a assigné avec l'attribute binding [faceSnap]="mySnap"
-	facesnap!: FaceSnap;
+	facesnap$!: Observable<FaceSnap>;
 
 	snapped: boolean = false;
 	buttonContent!: string;
@@ -20,24 +22,24 @@ export class SingleFaceSnapComponent implements OnInit {
 	ngOnInit() {
 		this.buttonContent = "Like !";
     const faceSnapId = +this.route.snapshot.params['id'];
-    this.facesnap = this.faceSnapsService.getFaceSnapById(faceSnapId);
+    this.facesnap$ = this.faceSnapsService.getFaceSnapById(faceSnapId);
 	}
 
 	onSnap() {
-		if (this.snapped == false) {
+		// if (this.snapped == false) {
 
-      this.faceSnapsService.snapFaceSnapById(this.facesnap.id, 'snap');
+    //   this.faceSnapsService.snapFaceSnapById(this.facesnap.id, 'snap');
 
-			this.snapped = true;
-			this.buttonContent = "Dislike"
+		// 	this.snapped = true;
+		// 	this.buttonContent = "Dislike"
 
-		} else {
+		// } else {
 
-      this.faceSnapsService.snapFaceSnapById(this.facesnap.id, 'unsnap');
-			this.snapped = false
-			this.buttonContent = "Like"
+    //   this.faceSnapsService.snapFaceSnapById(this.facesnap.id, 'unsnap');
+		// 	this.snapped = false
+		// 	this.buttonContent = "Like"
 
-		}
+		// }
 	}
 
 

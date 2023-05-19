@@ -12,13 +12,7 @@ export class AppComponent implements OnInit {
   interval$!: Observable<number>;
 
   ngOnInit(): void {
-    this.interval$ = interval(1000).pipe(
 
-      filter(value => value % 3 === 0),
-
-      map(value => value * 100),
-
-    );
   }
 
 }
